@@ -79,8 +79,11 @@ export NVM_DIR="$HOME/.nvm"
 if [[ -d ${HOME}/.pyenv ]]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
+  [[ -d ~/.pyenv/shims ]] && export PATH=$PATH:~/.pyenv/shims
+
   eval "$(pyenv init --path)" || true
   eval "$(pyenv init -)" || true
+  eval "$(pyenv virtualenv-init -)" || true
 fi
 
 # Haskell binaries on the path please
