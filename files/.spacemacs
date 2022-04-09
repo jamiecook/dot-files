@@ -31,9 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; elm
      ;; typescript
      ;; c-c++
+     c-c++
      shell-scripts
      ;; lua
      ansible
@@ -349,6 +349,7 @@ you should place your code here."
   (setq-default evil-escape-key-sequence "jk")
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
+  (setq-default typescript-indent-level 2)
   (setq c-basic-offset 4)
 
   ;; These are used to ensure that window splits happen vertically
