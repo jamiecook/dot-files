@@ -33,7 +33,7 @@ if [ "$TERM" != "dumb" ]; then
     alias ll='ls -l'
     alias l='ls -CF'
 
-    export GREP_OPTIONS='--color=auto'
+    [[ $(type -P "bat") ]] && alias cat=bat
 fi
 
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
