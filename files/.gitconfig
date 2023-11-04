@@ -9,7 +9,10 @@
   set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 [user]
   name  = Jamie Cook
-  email = jamie.cook@veitchlister.com.au
+  email = jamie@outerloop.io
+[credential]
+  helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+  name = Jamie Cook
 [color]
   diff = auto
   status = auto
