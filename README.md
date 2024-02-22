@@ -5,7 +5,7 @@ Installation
 
 To install the main config files into your $HOME directory just download the clone and link script and run using ruby
 
-    curl https://raw.githubusercontent.com/jamiecook/dot-files/master/clone_and_link.sh | ruby
+    curl https://raw.githubusercontent.com/jamiecook/dot-files/master/clone_and_link.sh | bash
 
 If you aren't comfortable with running arbitary scripts directly off the internet (which you shouldn't be) download
 the file, inspect it and run it manually.
