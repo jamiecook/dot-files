@@ -50,15 +50,13 @@ if [[ $? == 0 ]]; then
 fi
 # END: Ruby Stuff ------------------------------------------------------
 
-# NVM Stuff
-
-# Node Stuff
+# Node/NVM Stuff
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ]                    && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ]       && . "/usr/local/opt/nvm/etc/bash_completion"
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+source_if_exists /usr/local/opt/nvm/nvm.sh
+source_if_exists /usr/local/opt/nvm/etc/bash_completion
+source_if_exists /usr/local/opt/nvm/etc/bash_completion.d/nvm
+source_if_exists $NVM_DIR/bash_completion
 [[ -d "$HOME/.yarn" ]] && export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Python Stuff
 if [[ -d ${HOME}/.pyenv ]]; then
