@@ -9,7 +9,7 @@ alias es="vim ~/.ssh/config"
 
 alias ..="cd .."
 alias cp="cp -i"
-[ `which ack` ] || alias ack='ack-grep'
+[ `which ack-grep` ] || alias ack='ack-grep'
 
 alias crontab="VIM_CRONTAB=true EDITOR=vim crontab"
 
@@ -39,7 +39,8 @@ fi
 if [ -f "/Applications/MacVim.app/Contents/MacOS/Vim" ]; then
   alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 fi
-[[ $(command -v "bat") ]] && alias cat="bat --theme ansi-light"
+[[ $(command -v "bat") ]]    && alias cat="bat --theme ansi-light"
+[[ $(command -v "batcat") ]] && alias cat="batcat --theme ansi-light"
 
 alias vi='vim'
 
@@ -62,4 +63,20 @@ source_directory()
   test -d $1 && for file in ${1}/*; do
     source $file
   done
+}
+
+c() {
+  cd "$@" && ls -las
+}
+
+pol() {
+  local expected_dir=${HOME}/git/anl/polarislib/venv
+  if [[ ! -d "${expected_dir}" ]]; then
+    echo "polarislib directory (${expected_dir}) not found"
+    return
+  fi
+
+  . ${HOME}/git/anl/polarislib/venv/bin/activate
+  export PATH=${HOME}/git/polarislib/bin:${PATH}
+  export PYTHONPATH=${HOME}/git/polarislib
 }

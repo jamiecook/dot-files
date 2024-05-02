@@ -40,13 +40,7 @@ source_directory ~/.bash_completion.d
 source_if_exists ~/.bash_prompt
 
 # Amazon EC2 stuff
-for i in ~/.ec2rc ~/Projects/kahuna/etc/ec2/ec2rc; do source_if_exists $i; done
-
-# Oracle stuff
-if [ -d /opt/oracle/instantclient_10_2 ]; then
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/oracle/instantclient_10_2
-    ORACLE_HOME=/opt/oracle/instantclient_10_2
-fi
+for i in ~/.ec2rc; do source_if_exists $i; done
 
 # Ruby Stuff -----------------------------------------------------------
 which brew > /dev/null
@@ -56,17 +50,13 @@ if [[ $? == 0 ]]; then
 fi
 # END: Ruby Stuff ------------------------------------------------------
 
-# NVM Stuff
+# Node/NVM Stuff
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
-# Node Stuff
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+source_if_exists /usr/local/opt/nvm/nvm.sh
+source_if_exists /usr/local/opt/nvm/etc/bash_completion
+source_if_exists /usr/local/opt/nvm/etc/bash_completion.d/nvm
+source_if_exists $NVM_DIR/bash_completion
 [[ -d "$HOME/.yarn" ]] && export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Python Stuff
 if [[ -d ${HOME}/.pyenv ]]; then
@@ -87,13 +77,11 @@ fi
 which batcat > /dev/null 2>&1 && alias cat=$(which batcat)
 
 # Export all the things we've set up above
-export JAVA_HOME=/opt/jdk17
 export EDITOR=vim
 export FIGNORE="CVS:.swp:.svn"
-export PATH=$PATH:~/bin:$JAVA_HOME/bin
+export PATH=$PATH:~/bin
 export LD_LIBRARY_PATH
 export LANG=en_AU.UTF-8 # Setup the LANG so that gcc doesn't spit a^ characters instead of '
-export ORACLE_HOME
 export CIRCLE_API_TOKEN=f9c0f57d80044e8776a53f124a60bf0809cf8fe1
 export BAT_THEME=OneHalfLight
 export PACKAGE_ACCESS_TOKEN=8WyjTqkDa4uj3-rfiomm
@@ -104,7 +92,3 @@ export GISTIT_TOKEN="5522c05955ac0cbf22c8c73c26b7c51fdc4783a2"
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
-
-# s3fzf config
-export S3FZF_BUCKET=move2.0
-export S3FZF_ROOTDIR=/Users/jamie/move2.0
