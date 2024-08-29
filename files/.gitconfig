@@ -43,7 +43,8 @@
 	protocol = ssh
 [diff "sqlite3"]
   textconv = sqlite_dump.sh
-
+[diff "parquet"]
+  textconv = parquet_to_csv
 [diff "zip"]
   textconv = unzip -c -a
 [filter "lfs"]

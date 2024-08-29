@@ -52,6 +52,14 @@ alias var="${RUBY_NUMERIC_ARRAY_STR}.sum\""
 
 export LESS="-R"
 
+pbpaste() {
+  powershell.exe Get-Clipboard | sed 's/\r$//' | sed -z '$ s/\n$//'
+}
+if $(which clip.exe &> /dev/null); then
+  alias pbcopy=clip.exe
+  export -f pbpaste
+fi
+
 source_if_exists()
 {
   test -f $1 && source $1
