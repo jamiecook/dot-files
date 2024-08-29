@@ -73,6 +73,9 @@ fi
 [ -d ~/Library/Haskell/bin ] && PATH=$PATH:~/Library/Haskell/bin
 [ -d ~/.local/bin ] && PATH=$PATH:~/.local/bin
 
+# If batcat is installed... use it instead of cat
+which batcat > /dev/null 2>&1 && alias cat=$(which batcat)
+
 # Export all the things we've set up above
 export EDITOR=vim
 export FIGNORE="CVS:.swp:.svn"
