@@ -13,6 +13,7 @@
 source ~/.aliases/commands.sh
 source_directory ~/.aliases
 source_if_exists ~/.bash_aliases
+source_if_exists ~/.bash_functions
 
 # Search your history
 bind "\C-p":history-search-backward
@@ -72,6 +73,7 @@ fi
 # Haskell binaries on the path please
 [ -d ~/Library/Haskell/bin ] && PATH=$PATH:~/Library/Haskell/bin
 [ -d ~/.local/bin ] && PATH=$PATH:~/.local/bin
+[ -f ~/.cargo/env ] && . "$HOME/.cargo/env"
 
 # If batcat is installed... use it instead of cat
 which batcat > /dev/null 2>&1 && alias cat=$(which batcat)

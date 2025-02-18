@@ -9,6 +9,7 @@ alias gc='git commit -v'
 alias gb='git branch -v -v'
 alias gba='gb -a'
 alias gc.="gc -m '.'"
+alias gcl="gc -m 'lint'"
 alias gcm="gc -m "
 alias gfo="git fetch origin --prune"
 alias gch="git checkout"
